@@ -8,8 +8,6 @@ class DetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Cambiar luego por una instancia de movie
-
     final Movie movie = ModalRoute.of(context)!.settings.arguments as Movie;
 
     return Scaffold(
@@ -37,12 +35,13 @@ class _Overview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 20),
+      margin: const EdgeInsets.symmetric(vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Text(
         movie.overview,
-        style: TextStyle(fontSize: 16, height: 1.5, color: Colors.white70),
+        style:
+            const TextStyle(fontSize: 16, height: 1.5, color: Colors.white70),
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
     );
   }
 }
