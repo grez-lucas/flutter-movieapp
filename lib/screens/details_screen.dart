@@ -59,20 +59,22 @@ class _PosterAndTitle extends StatelessWidget {
     return Container(
         margin: const EdgeInsets.only(top: 20),
         padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Expanded(
-          child: Row(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: FadeInImage(
-                  height: 150,
-                  placeholder: const AssetImage('assets/no-image.jpg'),
-                  image: NetworkImage(movie.fullPosterImg),
-                  fit: BoxFit.cover,
-                ),
+        child: Row(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: FadeInImage(
+                height: 150,
+                placeholder: const AssetImage('assets/no-image.jpg'),
+                image: NetworkImage(movie.fullPosterImg),
+                fit: BoxFit.cover,
               ),
-              const SizedBox(width: 20),
-              Column(
+            ),
+            const SizedBox(width: 20),
+            SizedBox(
+              height: 150,
+              width: 200,
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
@@ -100,9 +102,9 @@ class _PosterAndTitle extends StatelessWidget {
                     ],
                   )
                 ],
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ));
   }
 }
