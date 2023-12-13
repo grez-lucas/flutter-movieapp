@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'providers/app_providers.dart';
 import 'screens/app_screens.dart';
 
-void main() => runApp(const AppState());
+Future main() async {
+  await dotenv.load(fileName: '.env');
+  runApp(const AppState());
+  }
 
 class AppState extends StatelessWidget {
   const AppState({super.key});
