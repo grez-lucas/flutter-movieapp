@@ -17,7 +17,7 @@ class DetailsScreen extends StatelessWidget {
         delegate: SliverChildListDelegate([
           _PosterAndTitle(movie: movie),
           _Overview(movie: movie),
-          CastingCards(),
+          CastingCards(movieId: movie.id),
         ]),
       )
     ]));
@@ -59,48 +59,50 @@ class _PosterAndTitle extends StatelessWidget {
     return Container(
         margin: const EdgeInsets.only(top: 20),
         padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Row(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: FadeInImage(
-                height: 150,
-                placeholder: const AssetImage('assets/no-image.jpg'),
-                image: NetworkImage(movie.fullPosterImg),
-                fit: BoxFit.cover,
+        child: Expanded(
+          child: Row(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: FadeInImage(
+                  height: 150,
+                  placeholder: const AssetImage('assets/no-image.jpg'),
+                  image: NetworkImage(movie.fullPosterImg),
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-            const SizedBox(width: 20),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  movie.title,
-                  style: const TextStyle(
-                      fontSize: 20, fontWeight: FontWeight.bold),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
-                ),
-                Text(
-                  movie.originalTitle,
-                  style: const TextStyle(
-                      fontSize: 16, fontWeight: FontWeight.w500),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
-                ),
-                Row(
-                  children: [
-                    Icon(Icons.star_outline, size: 15, color: Colors.grey),
-                    SizedBox(width: 5),
-                    Text(
-                      movie.voteAverage.toString(),
-                      style: TextStyle(fontSize: 12),
-                    )
-                  ],
-                )
-              ],
-            )
-          ],
+              const SizedBox(width: 20),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    movie.title,
+                    style: const TextStyle(
+                        fontSize: 20, fontWeight: FontWeight.bold),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 3,
+                  ),
+                  Text(
+                    movie.originalTitle,
+                    style: const TextStyle(
+                        fontSize: 16, fontWeight: FontWeight.w500),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                  ),
+                  Row(
+                    children: [
+                      Icon(Icons.star_outline, size: 15, color: Colors.grey),
+                      SizedBox(width: 5),
+                      Text(
+                        movie.voteAverage.toString(),
+                        style: TextStyle(fontSize: 12),
+                      )
+                    ],
+                  )
+                ],
+              )
+            ],
+          ),
         ));
   }
 }
