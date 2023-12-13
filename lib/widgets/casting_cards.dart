@@ -24,7 +24,7 @@ class CastingCards extends StatelessWidget {
         builder: (_, AsyncSnapshot<List<Cast>> snapshot) {
           if (!snapshot.hasData) {
             return Container(
-              constraints: BoxConstraints(maxWidth: 150),
+              constraints: const BoxConstraints(maxWidth: 150),
               width: double.infinity,
               height: 180,
               child: const CupertinoActivityIndicator(),
@@ -36,7 +36,7 @@ class CastingCards extends StatelessWidget {
           final List<Cast> cast = snapshot.data!;
 
           return Container(
-              margin: EdgeInsets.only(bottom: 30),
+              margin: const EdgeInsets.only(bottom: 30),
               width: double.infinity,
               height: 180,
               child: ListView.builder(

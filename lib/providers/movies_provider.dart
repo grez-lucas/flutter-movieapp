@@ -45,7 +45,7 @@ class MoviesProvider extends ChangeNotifier {
   }
 
   getPopularMovies() async {
-    final jsonData = await this._getJsonData('/3/movie/popular');
+    final jsonData = await _getJsonData('/3/movie/popular');
     final popularMoviesResponse = PopularResponse.fromRawJson(jsonData);
 
     popularMovies = popularMoviesResponse.movies;
@@ -57,10 +57,10 @@ class MoviesProvider extends ChangeNotifier {
   Future<List<Cast>> getMovieCast(int movieId) async {
     if (moviesCast.containsKey(movieId)) return moviesCast[movieId]!;
 
-    print("Getting server info for cast");
+    // print("Getting server info for cast");
 
     final jsonData = await _getJsonData('/3/movie/$movieId/credits');
-    print('JSON Data: $jsonData');
+    // print('JSON Data: $jsonData');
     final creditsResponse = CreditsResponse.fromRawJson(jsonData);
     // print(creditsResponse);
 
