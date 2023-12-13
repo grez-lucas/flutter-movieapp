@@ -15,16 +15,17 @@ class CardSwiper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
         width: double.infinity,
         height: size.height * 0.5,
         child: Swiper(
+            onTap: (int index) => Navigator.pushNamed(context, 'details',
+                arguments: movies[index]),
             itemCount: movies.length,
             layout: SwiperLayout.STACK,
             itemWidth: size.width * 0.6,
             itemHeight: size.height * 0.4,
             itemBuilder: (BuildContext context, int index) {
-              
               final Movie movie = movies[index];
 
               return ClipRRect(
