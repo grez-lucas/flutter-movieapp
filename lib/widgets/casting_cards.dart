@@ -14,8 +14,7 @@ class CastingCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final moviesProvider = Provider.of<MoviesProvider>(context, listen: false);
-
+    final moviesProvider = Provider.of<MoviesProvider>(context, listen: true);
 
     // Check if we have the cast of the movie in memory
     return FutureBuilder(
@@ -27,8 +26,6 @@ class CastingCards extends StatelessWidget {
               width: double.infinity,
               height: 180,
               child: const CupertinoActivityIndicator(),
-              
-
             );
           }
 
